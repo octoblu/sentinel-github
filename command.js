@@ -2,6 +2,7 @@
 
 var system = require('system');
 var casper = require('casper').create({
+  waitTimeout: (10 * 1000),
   onError: (function(error){
     console.log("failure due to error: " + error)
     console.log(this.echo(casper.captureBase64('png')))
