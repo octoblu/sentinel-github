@@ -13,15 +13,13 @@ if(!GITHUB_USERNAME || !GITHUB_PASSWORD) {
   this.exit(1)
 }
 
-casper.then(function() {
+helpers.thenWithErrors(casper, function() {
   this.click('.auth__button--github');
 })
 
-casper.then(function(){
-  casper.waitForSelector("#login")
-})
+casper.waitForSelector("#login")
 
-casper.then(function(){
+helpers.thenWithErrors(casper, function() {
   this.capture('pre-form.png')
   this.fill('#login', {
     'login': GITHUB_USERNAME,

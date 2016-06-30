@@ -5,6 +5,7 @@ var assertOnOctobluDashboard = function(casper){
     console.log("failure to load dashboard")
     console.log(casper.echo(casper.captureBase64('png')))
     casper.exit(1)
+    casper.waitForSelector('.endo-of-the-world', (function(){}), (function(){}), 30000);
   });
 };
 
@@ -15,6 +16,7 @@ var buildCasper = function(Casper){
       console.log("failure due to error: " + error)
       console.log(casper.echo(casper.captureBase64('png')))
       casper.exit(1)
+      casper.waitForSelector('.endo-of-the-world', (function(){}), (function(){}), 30000);
     })
   });
 
@@ -26,6 +28,7 @@ var buildCasper = function(Casper){
     console.log("failure due to casper error: " + error)
     console.log(casper.echo(casper.captureBase64('png')))
     casper.exit(1)
+    casper.waitForSelector('.endo-of-the-world', (function(){}), (function(){}), 30000);
   });
   return casper;
 };
@@ -47,6 +50,7 @@ var reportErrors = function(f) {
     casper.echo("failure in thenWithErrors: " + e)
     casper.echo(casper.captureBase64('png'))
     casper.exit(1)
+    casper.waitForSelector('.endo-of-the-world', (function(){}), (function(){}), 30000);
   }
 };
 
