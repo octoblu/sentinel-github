@@ -14,19 +14,19 @@ if(!GITHUB_USERNAME || !GITHUB_PASSWORD) {
 }
 
 helpers.thenWithErrors(casper, function() {
-  this.click('.auth__button--github');
+  casper.click('.auth__button--github');
 })
 
 casper.waitForSelector("#login")
 
 helpers.thenWithErrors(casper, function() {
-  this.capture('pre-form.png')
-  this.fill('#login', {
+  casper.capture('pre-form.png')
+  casper.fill('#login', {
     'login': GITHUB_USERNAME,
     'password': GITHUB_PASSWORD
   })
 
-  this.click('input[name="commit"]')
+  casper.click('input[name="commit"]')
 })
 
 helpers.assertOnOctobluDashboard(casper);
