@@ -3,14 +3,14 @@
 var system  = require('system');
 var helpers = require('./helpers');
 var Casper  = require('casper');
-var casper  = helpers.buildCasper(Casper);
+var casper  = helpers.buildCasper(Casper, 'sentinel-github');
 
 var GITHUB_USERNAME = system.env.GITHUB_USERNAME;
 var GITHUB_PASSWORD = system.env.GITHUB_PASSWORD;
 
 if(!GITHUB_USERNAME || !GITHUB_PASSWORD) {
   console.log('Missing required env: GITHUB_USERNAME or GITHUB_PASSWORD')
-  this.exit(1)
+  casper.exit(1)
 }
 
 helpers.thenWithErrors(casper, function() {
