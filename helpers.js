@@ -8,7 +8,7 @@ var assertOnOctobluDashboard = function(casper){
     casper.capture('./images/' + randomFilename());
     casper.exit(1)
     casper.waitForSelector('.endo-of-the-world', (function(){}), (function(){}), 30000);
-  });
+  }, 30 * 1000);
 };
 
 var buildCasper = function(Casper, _filename){
